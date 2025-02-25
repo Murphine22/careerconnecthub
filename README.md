@@ -57,7 +57,7 @@ The AI-Powered Job Match Dashboard is a web application built with Next.js, Reac
  🛠 Installation & Setup
 1. Clone the Repository
    ```sh
-   git clone https://github.com/Murphine22/ai-job-match-dashboard.git
+   git clone https://github.com/Murphine22/careerconnecthub.git
    cd ai-job-match-dashboard
    ```
 2. Install Dependencies
