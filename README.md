@@ -1,69 +1,110 @@
-# Welcome to your Lovable project
+ AI-Powered Job Match Dashboard
 
-## Project info
+ 📌 Project Overview
+The AI-Powered Job Match Dashboard is a web application built with Next.js, React, and Tailwind CSS. It displays job recommendations, match scores, and allows users to apply for jobs** based on their skills. This project demonstrates API handling, UI/UX design, and state management.
 
-**URL**: https://lovable.dev/projects/0b158243-4385-49a4-a2a6-59dbe9f0d2d4
+ 🎯 Objective
+- Display job listings with AI-generated match scores.
+- Visualize job match scores using color-coded indicators.
+- Show detailed job descriptions upon selection.
+- Implement an Apply Now button with skill-based alerts.
+- Ensure a fully responsive and mobile-friendly design.
 
-## How can I edit this code?
+ 📜 Project Requirements
+ 1️⃣ UI Components
+✅ Job List Component
+- Display a list of job recommendations.
+- Each job card should include:
+  - Title, Company, Location, Salary Range
+  - Match Score (0-100%) (AI-generated)
 
-There are several ways of editing your application.
+✅ Match Score Visualization
+- Use a progress bar or score badge to represent match percentage.
+- Color-coded system:
+  - 🟢 Green (80%+) → Strong match
+  - 🟡 Yellow (50-79%) → Moderate match
+  - 🔴 Red (<50%) → Weak match
 
-**Use Lovable**
+✅ Job Details Component
+- Clicking on a job opens a modal or a new page.
+- Display job details and required skills.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0b158243-4385-49a4-a2a6-59dbe9f0d2d4) and start prompting.
+✅ Apply Now Button
+- Allows users to apply for jobs (mock action).
+- If the user lacks required skills, an alert suggests upskilling options.
 
-Changes made via Lovable will be committed automatically to this repo.
+✅ Responsive Design
+- The UI must be **mobile-friendly and adaptive**.
 
-**Use your preferred IDE**
+ 2️⃣ API Handling
+✅ Mock Job Data API
+- Fetch job listings from a mock API (local JSON or a free online API like MockAPI).
+- Dynamically display job details.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+✅ Dynamic User Data Simulation
+- Assume a mock user profile with skills.
+- Compare the **user's skills** with the **job's required skills** to calculate a **match score**.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+ ⚙️ Technical Stack
+| Technology            | Purpose  |
+|-----------------------|-----------------|
+| Next.js (React)       | Frontend framework |
+| Tailwind CSS          | Styling & UI design |
+| Context API / Zustand | State management |
+| Fetch / Axios         | API handling |
+| TypeScript (Bonus)    | Strongly typed development |
 
-Follow these steps:
+ 🛠 Installation & Setup
+1. Clone the Repository
+   ```sh
+   git clone https://github.com/yourusername/ai-job-match-dashboard.git
+   cd ai-job-match-dashboard
+   ```
+2. Install Dependencies
+   ```sh
+   npm install
+   ```
+3. Run the Development Server
+   ```sh
+   npm run dev
+   ```
+4. Open the App in your browser at:
+   ```sh
+   http://localhost:3000
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+ 📡 Mock API for Job Listings
+Use this mock JSON API for job data:
+```json
+[
+  {
+    "id": 1,
+    "title": "Frontend Developer",
+    "company": "Tech Corp",
+    "location": "Remote",
+    "salary": "$70,000 - $90,000",
+    "requiredSkills": ["React", "Next.js", "JavaScript", "Tailwind CSS"],
+    "matchScore": 85
+  },
+  {
+    "id": 2,
+    "title": "UI Engineer",
+    "company": "DesignPro",
+    "location": "New York, USA",
+    "salary": "$80,000 - $100,000",
+    "requiredSkills": ["Figma", "React", "CSS"],
+    "matchScore": 70
+  }
+]
 ```
 
-**Edit a file directly in GitHub**
+ ✅ Evaluation Criteria
+Your project will be assessed based on:
+✔ Code Quality & Best Practices – Clean, modular, and well-structured code.
+✔ UI/UX Design & Responsiveness – A visually appealing and functional design.
+✔ API Integration & Data Handling – Fetching and displaying data dynamically.
+✔ State Management & Performance – Efficient component re-renders and state handling.
+✔ Bonus: TypeScript usage or additional enhancements.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+ 🚀 Ready to Build? Let’s Go! 💻🔥
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/0b158243-4385-49a4-a2a6-59dbe9f0d2d4) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
