@@ -98,13 +98,5 @@ Use this mock JSON API for job data:
 ]
 ```
 
- ✅ Evaluation Criteria
-Your project will be assessed based on:
-✔ Code Quality & Best Practices – Clean, modular, and well-structured code.
-✔ UI/UX Design & Responsiveness – A visually appealing and functional design.
-✔ API Integration & Data Handling – Fetching and displaying data dynamically.
-✔ State Management & Performance – Efficient component re-renders and state handling.
-✔ Bonus: TypeScript usage or additional enhancements.
-
  🚀 Ready to Build? Let’s Go! 💻🔥
 
