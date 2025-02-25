@@ -42,13 +42,21 @@ const JobModal = ({ job, isOpen, onClose }: JobModalProps) => {
     }
   };
 
+  const getScoreColor = (score: number) => {
+    if (score >= 80) return 'bg-soft-green dark:bg-emerald-800/30';
+    if (score >= 50) return 'bg-soft-yellow dark:bg-amber-800/30';
+    return 'bg-soft-orange dark:bg-red-800/30';
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[600px] animate-scaleUp">
+      <DialogContent className="sm:max-w-[600px] animate-scaleUp bg-card">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-semibold">{job.title}</DialogTitle>
+          <DialogTitle className="text-2xl font-semibold text-card-foreground">
+            {job.title}
+          </DialogTitle>
           <DialogDescription>
-            <div className="flex items-center gap-4 mt-2 text-gray-600">
+            <div className="flex items-center gap-4 mt-2 text-muted-foreground">
               <div className="flex items-center gap-1">
                 <Building2 className="w-4 h-4" />
                 <span>{job.company}</span>
@@ -63,13 +71,13 @@ const JobModal = ({ job, isOpen, onClose }: JobModalProps) => {
 
         <div className="mt-4">
           <div className="flex items-center gap-2 mb-6">
-            <DollarSign className="w-5 h-5 text-gray-500" />
-            <span className="text-lg text-gray-700">{job.salary}</span>
+            <DollarSign className="w-5 h-5 text-muted-foreground" />
+            <span className="text-lg text-card-foreground">{job.salary}</span>
           </div>
 
           <div className="space-y-6">
             <div>
-              <h4 className="text-sm font-medium mb-2">Required Skills</h4>
+              <h4 className="text-sm font-medium mb-2 text-card-foreground">Required Skills</h4>
               <div className="flex flex-wrap gap-2">
                 {job.requiredSkills.map((skill) => {
                   const hasSkill = userSkills.skills.includes(skill);
@@ -78,8 +86,8 @@ const JobModal = ({ job, isOpen, onClose }: JobModalProps) => {
                       key={skill}
                       variant={hasSkill ? "default" : "secondary"}
                       className={`flex items-center gap-1 ${
-                        hasSkill ? "bg-soft-green text-gray-900" : "bg-soft-orange text-gray-900"
-                      }`}
+                        hasSkill ? "bg-soft-green dark:bg-emerald-800/30" : "bg-soft-orange dark:bg-red-800/30"
+                      } text-foreground transition-colors duration-200`}
                     >
                       {hasSkill ? (
                         <CheckCircle2 className="w-3 h-3" />
@@ -94,10 +102,14 @@ const JobModal = ({ job, isOpen, onClose }: JobModalProps) => {
             </div>
 
             <div>
-              <h4 className="text-sm font-medium mb-2">Your Skills</h4>
+              <h4 className="text-sm font-medium mb-2 text-card-foreground">Your Skills</h4>
               <div className="flex flex-wrap gap-2">
                 {userSkills.skills.map((skill) => (
-                  <Badge key={skill} variant="outline" className="bg-gray-50">
+                  <Badge 
+                    key={skill} 
+                    variant="outline" 
+                    className="bg-background/50 dark:bg-background/10"
+                  >
                     {skill}
                   </Badge>
                 ))}
@@ -105,20 +117,14 @@ const JobModal = ({ job, isOpen, onClose }: JobModalProps) => {
             </div>
 
             <div className="relative pt-2">
-              <h4 className="text-sm font-medium mb-2">Match Score</h4>
-              <div className="w-full bg-gray-200 rounded-full h-3">
+              <h4 className="text-sm font-medium mb-2 text-card-foreground">Match Score</h4>
+              <div className="w-full bg-accent rounded-full h-3">
                 <div
-                  className={`h-3 rounded-full transition-all duration-500 ${
-                    job.matchScore >= 80
-                      ? "bg-soft-green"
-                      : job.matchScore >= 50
-                      ? "bg-soft-yellow"
-                      : "bg-soft-orange"
-                  }`}
+                  className={`h-3 rounded-full transition-all duration-500 ${getScoreColor(job.matchScore)}`}
                   style={{ width: `${job.matchScore}%` }}
                 />
               </div>
-              <span className="text-sm text-gray-600 mt-1 block">
+              <span className="text-sm text-muted-foreground mt-1 block">
                 {job.matchScore}% Match
               </span>
             </div>
@@ -127,7 +133,7 @@ const JobModal = ({ job, isOpen, onClose }: JobModalProps) => {
           <div className="mt-8">
             <Button
               onClick={handleApply}
-              className="w-full bg-gray-900 hover:bg-gray-800 text-white transition-colors duration-200"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-200"
             >
               Apply Now
             </Button>

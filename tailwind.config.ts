@@ -30,6 +30,8 @@ export default {
           yellow: "#FEF7CD",
           orange: "#FEC6A1",
           purple: "#E5DEFF",
+          blue: "#D3E4FD",
+          pink: "#FFDEE2",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
